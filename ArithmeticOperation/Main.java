@@ -9,7 +9,9 @@ public class Main {
         int A = Integer.parseInt(operands[0]);
         int B = Integer.parseInt(operands[1]);
 
-        ArithmeticFactory factory = new ArithmeticFactory();
+        Main mainObject = new Main();
+
+        ArithmeticFactory factory = mainObject.new ArithmeticFactory();
 
         char[] operators = {'+', '-', '*', '/', '%'};
         for (char operator : operators) {
@@ -19,7 +21,7 @@ public class Main {
         scanner.close();
     }
 
-    public static class ArithmeticFactory {
+    public class ArithmeticFactory {
         public Arithmetic instance(char operand) throws RuntimeException {
             switch (operand) {
                 case '+':
@@ -38,39 +40,39 @@ public class Main {
         }
     }
 
-    abstract static private class Arithmetic {
+    abstract private class Arithmetic {
         abstract public int process(int A, int B);
     }
 
-    private static class Addition extends Arithmetic {
+    private class Addition extends Arithmetic {
         @Override
         public int process(int A, int B) {
             return A + B;
         }
     }
 
-    private static class Subtraction extends Arithmetic {
+    private class Subtraction extends Arithmetic {
         @Override
         public int process(int A, int B) {
             return A - B;
         }
     }
 
-    private static class Multiplication extends Arithmetic {
+    private class Multiplication extends Arithmetic {
         @Override
         public int process(int A, int B) {
             return A * B;
         }
     }
 
-    private static class Division extends Arithmetic {
+    private class Division extends Arithmetic {
         @Override
         public int process(int A, int B) {
             return A / B;
         }
     }
 
-    private static class Modulus extends Arithmetic {
+    private class Modulus extends Arithmetic {
         @Override
         public int process(int A, int B) {
             return A % B;
