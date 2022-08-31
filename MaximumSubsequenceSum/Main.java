@@ -16,7 +16,7 @@ public class Main {
 
         System.out.println(mainObject.getMaximumSubsequenceSum());
 
-        mainObject.flushResources();
+        mainObject.releaseResources();
     }
 
     private void initializeResources() {
@@ -24,7 +24,7 @@ public class Main {
         inputs = new int[100000];
     }
 
-    private void flushResources() {
+    private void releaseResources() {
         scanner.close();
     }
 
